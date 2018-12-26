@@ -29,13 +29,14 @@ module.exports = {
 				},
 				{
         test: /\.css$/,
-        use: [
-          isDev
-            ? { loader: 'style-loader', options: { sourceMap: true }} // CSS HMR
-            : MiniCssExtractPlugin.loader, // extract CSS in production builds
-          { loader: 'css-loader', options: { sourceMap: isDev }},
+        loaders: ['css-loader'],
+        //use: [
+          //isDev
+          //  ? { loader: 'style-loader', options: { sourceMap: true }} // CSS HMR
+          //  : MiniCssExtractPlugin.loader, // extract CSS in production builds
+          //{ loader: 'css-loader', options: { sourceMap: isDev }},
           //{ loader: 'postcss-loader', options: { sourceMap: isDev }},
-        ],
+        //],
       },
 			]
 		},
