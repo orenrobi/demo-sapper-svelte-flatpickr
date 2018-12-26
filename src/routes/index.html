@@ -1,0 +1,45 @@
+<svelte:head>
+	<title>Sapper project template</title>
+</svelte:head>
+
+<div>
+	<Flatpickr options="{ flatpickrOptions }"
+		bind:value="date"
+		placeholder="optional placeholder" 
+		on:change="handleChange(...event)" />
+</div>
+
+<style>
+
+</style>
+
+<script>
+import { Flatpickr } from 'svelte-flatpickr'
+
+import 'flatpickr/dist/flatpickr.css'
+import 'flatpickr/dist/themes/light.css'
+
+export default {
+	data() {
+		return {
+			date: null,
+			flatpickrOptions: {
+				enableTime: true,
+				onChange(selectedDates, dateStr, instance) {
+					console.log('Options onChange handler')
+				}
+			}
+		}
+	},
+
+	methods: {
+		handleChange(selectedDates, dateStr, instance) {
+			console.log('Svelte onChange handler')
+		}
+	},
+
+	components: {
+		Flatpickr
+	}
+}
+</script>
